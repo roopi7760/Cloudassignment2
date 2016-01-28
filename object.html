@@ -1,0 +1,6 @@
+<!doctype html>
+    <title> List of contianer</title>
+    <h1>List of containers </h1>
+    {% for data in conn.get_container(container)[1] %}
+        <li><a href="" >{{data['name']}}</a></li>
+    {% endfor %}
