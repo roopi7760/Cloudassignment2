@@ -2,8 +2,6 @@ import os
 from flask import Flask, request, redirect, url_for, make_response
 from werkzeug import secure_filename
 from flask import send_from_directory
-import swiftclient
-import keystoneclient
 from flask import render_template
 import couchdb
 import datetime
@@ -12,17 +10,20 @@ import time
 import json
 
 #variables for Cloudant Database
-USERNAME = "7d79e7d0-6d67-4a21-aac0-15fff940c492-bluemix"
-PASSWORD = "4828714fecff497426fe357632f22a10f6d0a82e2d0f3888ea59bbad2a57e5fb"
+USERNAME = "be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix"
+PASSWORD = "473146b3b4d9073f3f02c83b97b5f8778a45a62e94177c1a1ecd1601edd24cfa"
 
 UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 #connect to the Cloudant Database instance
-couch = couchdb.Server("https://7d79e7d0-6d67-4a21-aac0-15fff940c492-bluemix:4828714fecff497426fe357632f22a10f6d0a82e2d0f3888ea59bbad2a57e5fb@7d79e7d0-6d67-4a21-aac0-15fff940c492-bluemix.cloudant.com")
+couch = couchdb.Server("https://be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix:473146b3b4d9073f3f02c83b97b5f8778a45a62e94177c1a1ecd1601edd24cfa@be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix.cloudant.com")
 db = couch['appsync']
 
 app = Flask(__name__)
+app.config.from_object(__name__)
+port = int(os.getenv("VCAP_APP_PORT",'5000'))
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
@@ -133,4 +134,4 @@ def deleteFile(filename):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0',port=port)
