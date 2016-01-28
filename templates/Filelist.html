@@ -6,9 +6,9 @@
         <tr align="center"><th>File Name</th><th>version</th><th>Modified Date</th><th>Action</th></tr>
             {% for doc in db %}
                 {% set getdoc = db.get(doc) %}
-                    <tr align="center"><td><a href="/container/{{getdoc['_id']}}" >{{ getdoc["_id"] }}</a></td>
+                    <tr align="center"><td><a href="/list/{{getdoc['_id']}}" >{{ getdoc["_id"] }}</a></td>
                         <td> </td><td>{{ getdoc["datemodified"] }}</td>
                         <td><a href="/delete/{{getdoc['_id']}}">Delete</a></td></tr>
             {% endfor %}
-        <tr align="center"><td colspan="3"><a href="/"> << Back</a> </td> </tr>
+        <tr align="center"><td colspan="4"><a href="/"> << Back</a> </td> </tr>
     </table>
