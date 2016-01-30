@@ -1,14 +1,14 @@
 <!doctype html>
 </head>
     <title> List of Files</title>
-    <table cellpadding="2.0" width="50%" border="1.0">
+    <div align="center"> <table cellpadding="2.0" width="50%" border="1.0">
         <caption><b/>List of Files</caption>
-        <tr align="center"><th>File Name</th><th>version</th><th>Modified Date</th><th>Action</th></tr>
+        <tr align="center"><th>File Name</th><th>Latest version</th><th>Modified Date</th><th>Action</th></tr>
             {% for doc in db %}
                 {% set getdoc = db.get(doc) %}
-                    <tr align="center"><td><a href="/list/{{getdoc['_id']}}" >{{ getdoc["_id"] }}</a></td>
-                        <td> </td><td>{{ getdoc["datemodified"] }}</td>
+                    <tr align="center"><td><a href="/list/selectver/{{getdoc['_id']}}" >{{ getdoc["_id"] }}</a></td>
+                        <td>{{getdoc["latest_version"]}} </td><td>{{ getdoc["disp_modified_date"] }}</td>
                         <td><a href="/delete/{{getdoc['_id']}}">Delete</a></td></tr>
             {% endfor %}
         <tr align="center"><td colspan="4"><a href="/"> << Back</a> </td> </tr>
-    </table>
+    </table></div>

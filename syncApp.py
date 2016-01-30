@@ -22,7 +22,7 @@ db = couch['appsync']
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-port = int(os.getenv("VCAP_APP_PORT",'5000'))
+#port = int(os.getenv("VCAP_APP_PORT",'5000'))
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -30,11 +30,16 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
-@app.route('/list/<filename>')
+@app.route('/list/selectver/<filename>')
+def selectver(filename):
+    return render_template('selectver.html',db=db, filename = filename)
+
+@app.route('/list/<filename>', methods = ["post"])
 def downloadFile(filename):
+    version = request.form['version'].encode('ascii','ignore')
     downdoc = db.get(filename)
     file = open(UPLOAD_FOLDER + '/' + filename,"w+")
-    file.write(downdoc['contents'])
+    file.write(downdoc['version'][version]['rev_content'])
     file.close()
     return send_from_directory(directory=app.config['UPLOAD_FOLDER'], filename=filename)
 
@@ -76,26 +81,52 @@ def insertFileIntoDB(filename):
     content = file.read()
     dateModified = time.strftime("%m/%d/%Y %I:%M:%S %p",time.localtime(os.stat(UPLOAD_FOLDER + "/" + filename).st_mtime))
     filehash = hashlib.sha224(content).hexdigest()
-
     doc = db.get(filename)
     if doc:
-        if doc['hashcode'] == filehash:
-            message = 'Sorry! File already exist on the server'
-            return render_template('info.html',message=message)
-        else:
-            doc['contents'] = content
-            doc['hashcode'] = filehash
-            doc['datemodified'] = dateModified
-            db.save(doc)
-            message = "File Update Successfully"
-            return render_template('info.html', message = message)
+        for ver in doc['version']:
+            if doc['version'][ver]['rev_hashcode'] == filehash:
+                message = 'Sorry! File already exist on the server'
+                return render_template('info.html',message=message)
 
+        latest_version = int(doc['latest_version'].encode('ascii','ignore')) + 1
+        latest_version = str(latest_version)
+        doc['latest_version'] = latest_version
+        doc['disp_modified_date'] = dateModified
+        doc['version'][latest_version] = {'rev_content' : content,
+                    'rev_hashcode' : filehash,
+                    'datemodified' : dateModified}
+        db.save(doc)
+        '''doc = db.save({
+            '_id' : filename,
+            'latest_version': latest_version,
+            'disp_modified_date' : dateModified,
+            'version' : {
+            latest_version:
+                {
+                    'rev_content' : content,
+                    'rev_hashcode' : filehash,
+                    'datemodified' : dateModified
+                }
+        }
+
+        })'''
+        message = "New version " + latest_version + " for the file " + filename + " added successfully."
+        return render_template('info.html', message = message)
+    latest_version = str(1)
     docid,docrev = db.save({
-        '_id' : filename,
-        'contents' : content,
-        'hashcode' : filehash,
-        'datemodified' : dateModified
-    })
+            '_id' : filename,
+            'latest_version' : latest_version,
+            'disp_modified_date' : dateModified,
+            'version':
+                {
+                    latest_version :
+                         {
+                        'rev_content': content,
+                        'rev_hashcode' : filehash,
+                        'datemodified' : dateModified
+                        }
+                }
+            })
     doc = db.get(docid)
     message = "File uploaded Successfully"
     return render_template('info.html',message=message)
@@ -116,12 +147,12 @@ def upload_file():
     return '''
     <!doctype html>
     <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form action="" method=post enctype=multipart/form-data>
+    <h1 align="center">Upload new File</h1>
+    <div align="center"><form action="" method=post enctype=multipart/form-data>
       <p><input type=file name=file>
          <input type=submit value=Upload>
     </form>
-    <a href='/'> << Back </a>
+    <a href='/'> << Back </a></div>
     '''
 
 @app.route('/delete/<filename>')
@@ -134,4 +165,5 @@ def deleteFile(filename):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=port)
+    #app.run(host='0.0.0.0',port=port)
+    app.run()
