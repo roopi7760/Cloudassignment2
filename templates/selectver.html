@@ -1,0 +1,16 @@
+<!doctype html>
+</head>
+    <title>Select version</title>
+<p align="center">There seems to be versions
+
+    for the file <b>{{ filename}} </b>. </p>
+ <div name="selectversion" align="center"><form action="/list/{{filename}}" method="POST">
+    <label>Please select the version to download: </label>
+     <select name="version" id="version" >
+         {% set doc = db.get(filename) %}
+    {% for ver in doc['version']: %}
+        <option value = {{ ver }}>{{ver}}</option> ,
+    {% endfor %}
+     </select>
+    <input type="submit" value="Download">
+</form></div>

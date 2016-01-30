@@ -9,7 +9,7 @@ couch = couchdb.Server("https://be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix:473
 mversion = '1'
 db = couch['appsync']
 '''db.save({
-            '_id' : 'hi2.txt',
+            '_id' : 'hi3.txt',
             'version':
                 {
                     1 :
@@ -25,10 +25,12 @@ db = couch['appsync']
                         'datemodified' : 'dateModified2'
                         }
                 }
-            })
-'''
-doc = db.get('hi1.txt')
-print doc['version'][mversion]
-doc['version'][mversion] = None # {'rev_content': None, 'rev_hashcode':None, 'datemodified': None}
-db.save(doc)
-print doc
+            })'''
+
+doc = db.get('hi.txt')
+for d in doc['version']:
+    d = d.encode('ascii','ignore')
+    print doc['version'][d]['rev_content']
+#doc['version'][mversion] = None # {'rev_content': None, 'rev_hashcode':None, 'datemodified': None}
+#db.save(doc)
+#print doc
