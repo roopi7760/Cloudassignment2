@@ -1,13 +1,34 @@
 import couchdb
 import json
 
-USERNAME = "7d79e7d0-6d67-4a21-aac0-15fff940c492-bluemix"
-PASSWORD = "4828714fecff497426fe357632f22a10f6d0a82e2d0f3888ea59bbad2a57e5fb"
-couch = couchdb.Server("https://7d79e7d0-6d67-4a21-aac0-15fff940c492-bluemix:4828714fecff497426fe357632f22a10f6d0a82e2d0f3888ea59bbad2a57e5fb@7d79e7d0-6d67-4a21-aac0-15fff940c492-bluemix.cloudant.com")
+USERNAME = "be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix"
+PASSWORD = "473146b3b4d9073f3f02c83b97b5f8778a45a62e94177c1a1ecd1601edd24cfa"
+
+couch = couchdb.Server("https://be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix:473146b3b4d9073f3f02c83b97b5f8778a45a62e94177c1a1ecd1601edd24cfa@be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix.cloudant.com")
 #couch.resource.credentials(USERNAME,PASSWORD)
-
+mversion = '1'
 db = couch['appsync']
-
-for doc in db:
-    getdocs = db.get(doc)
-    print getdocs['_id']
+'''db.save({
+            '_id' : 'hi2.txt',
+            'version':
+                {
+                    1 :
+                         {
+                        'rev_content': 'content1',
+                        'rev_hashcode' : 'filehash1',
+                        'datemodified' : 'datemodified1'
+                        },
+                    2 :
+                        {
+                        'rev_content': 'content2',
+                        'rev_hashcode' : 'filehash2',
+                        'datemodified' : 'dateModified2'
+                        }
+                }
+            })
+'''
+doc = db.get('hi1.txt')
+print doc['version'][mversion]
+doc['version'][mversion] = None # {'rev_content': None, 'rev_hashcode':None, 'datemodified': None}
+db.save(doc)
+print doc

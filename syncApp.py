@@ -22,7 +22,7 @@ db = couch['appsync']
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-port = int(os.getenv("VCAP_APP_PORT",'5000'))
+#port = int(os.getenv("VCAP_APP_PORT",'5000'))
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -76,26 +76,32 @@ def insertFileIntoDB(filename):
     content = file.read()
     dateModified = time.strftime("%m/%d/%Y %I:%M:%S %p",time.localtime(os.stat(UPLOAD_FOLDER + "/" + filename).st_mtime))
     filehash = hashlib.sha224(content).hexdigest()
-
+    version = 2
     doc = db.get(filename)
     if doc:
         if doc['hashcode'] == filehash:
             message = 'Sorry! File already exist on the server'
             return render_template('info.html',message=message)
         else:
-            doc['contents'] = content
+            '''doc['contents'] = content
             doc['hashcode'] = filehash
             doc['datemodified'] = dateModified
-            db.save(doc)
+            db.save(doc)'''
             message = "File Update Successfully"
             return render_template('info.html', message = message)
 
     docid,docrev = db.save({
-        '_id' : filename,
-        'contents' : content,
-        'hashcode' : filehash,
-        'datemodified' : dateModified
-    })
+            '_id' : filename,
+            'version':
+                {
+                    'contents' :
+                         {
+                        'rev_content': content,
+                        'rev_hashcode' : filehash,
+                        'datemodified' : dateModified
+                        }
+                }
+            })
     doc = db.get(docid)
     message = "File uploaded Successfully"
     return render_template('info.html',message=message)
@@ -134,4 +140,5 @@ def deleteFile(filename):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=port)
+    #app.run(host='0.0.0.0',port=port)
+    app.run()
