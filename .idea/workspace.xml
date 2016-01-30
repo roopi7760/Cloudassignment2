@@ -8,12 +8,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assignment1Roopesh/gnupg/trustdb.gpg" afterPath="$PROJECT_DIR$/../Assignment1Roopesh/gnupg/trustdb.gpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assignment1Roopesh/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Assignment1Roopesh/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assignment1Roopesh/Encryp_decryp.py" afterPath="$PROJECT_DIR$/../Assignment1Roopesh/Encryp_decryp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cloudantdb.py" afterPath="$PROJECT_DIR$/cloudantdb.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/syncApp.py" afterPath="$PROJECT_DIR$/syncApp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Filelist.html" afterPath="$PROJECT_DIR$/templates/Filelist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/info.html" afterPath="$PROJECT_DIR$/templates/info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploads/hi.txt" afterPath="$PROJECT_DIR$/uploads/hi.txt" />
     </list>
     <ignored path="Cloudassignment2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,8 +41,8 @@
       <file leaf-file-name="syncApp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/syncApp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="8.157895">
-              <caret line="155" column="7" selection-start-line="155" selection-start-column="7" selection-end-line="155" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.05263158">
+              <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -433,7 +427,7 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1378" height="735" extended-state="1" />
+    <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -599,8 +593,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/syncApp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.157895">
-          <caret line="155" column="7" selection-start-line="155" selection-start-column="7" selection-end-line="155" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.05263158">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
