@@ -2,22 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85b9cdd3-78c1-4253-8200-a9268ea946d9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/deletever.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/listver.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assignment1Roopesh/gnupg/pubring.gpg" afterPath="$PROJECT_DIR$/../Assignment1Roopesh/gnupg/pubring.gpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assignment1Roopesh/gnupg/random_seed" afterPath="$PROJECT_DIR$/../Assignment1Roopesh/gnupg/random_seed" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assignment1Roopesh/gnupg/secring.gpg" afterPath="$PROJECT_DIR$/../Assignment1Roopesh/gnupg/secring.gpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assignment1Roopesh/gnupg/trustdb.gpg" afterPath="$PROJECT_DIR$/../Assignment1Roopesh/gnupg/trustdb.gpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assignment1Roopesh/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Assignment1Roopesh/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assignment1Roopesh/Encryp_decryp.py" afterPath="$PROJECT_DIR$/../Assignment1Roopesh/Encryp_decryp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cloudantdb.py" afterPath="$PROJECT_DIR$/cloudantdb.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/syncApp.py" afterPath="$PROJECT_DIR$/syncApp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Filelist.html" afterPath="$PROJECT_DIR$/templates/Filelist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/info.html" afterPath="$PROJECT_DIR$/templates/info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/selectver.html" afterPath="$PROJECT_DIR$/templates/selectver.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploads/hi.txt" afterPath="$PROJECT_DIR$/uploads/hi.txt" />
     </list>
     <ignored path="Cloudassignment2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="syncApp.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="syncApp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/syncApp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.4444447">
-              <caret line="170" column="13" selection-start-line="170" selection-start-column="13" selection-end-line="170" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.05263158">
+              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -102,10 +92,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.52380955">
+            <state vertical-scroll-proportion="-6.827586">
               <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
               <folding />
             </state>
@@ -149,11 +139,11 @@
         <option value="$PROJECT_DIR$/cloudantdb.py" />
         <option value="$PROJECT_DIR$/templates/deletever.html" />
         <option value="$PROJECT_DIR$/templates/selectver.html" />
-        <option value="$PROJECT_DIR$/syncApp.py" />
         <option value="$PROJECT_DIR$/templates/Filelist.html" />
         <option value="$PROJECT_DIR$/templates/listver.html" />
         <option value="$PROJECT_DIR$/templates/info.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/syncApp.py" />
       </list>
     </option>
   </component>
@@ -481,13 +471,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/syncApp.py</url>
-          <line>44</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
@@ -642,21 +625,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/syncApp.py">
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4444447">
-          <caret line="170" column="13" selection-start-line="170" selection-start-column="13" selection-end-line="170" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-6.827586">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/syncApp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52380955">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-          <folding />
+        <state vertical-scroll-proportion="0.05263158">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
