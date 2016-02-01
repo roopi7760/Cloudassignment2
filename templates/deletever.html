@@ -1,0 +1,18 @@
+<!doctype html>
+</head>
+    <title>Select version</title>
+
+ <div name="selectversion" align="center"><form action="/delete/{{filename}}" method="POST">
+    <label>Please select the version to Delete: </label>
+     <select name="version" id="version" >
+         {% set doc = db.get(filename) %}
+    {% for ver in doc['version']: %}
+         {%if (doc['version'][ver]) : %}
+            <option value = {{ ver }}>{{ver}}</option> ,
+         {% endif %}
+    {% endfor %}
+     </select>
+    <input type="submit" value="Delete">
+</form>
+     <a href="/list"> << Back</a>
+ </div>

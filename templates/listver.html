@@ -1,0 +1,15 @@
+<!doctype html>
+</head>
+    <title>Versions</title>
+    <div align="center"> <table cellpadding="2.0" width="50%" border="1.0">
+        <caption><b/>List of Versions of the File {{doc['_id']}}</caption>
+        <tr align="center"><th>Version Number</th><th>Modified Date</th></tr>
+            {% for ver in doc['version'] %}
+                    <tr align="center">
+                        {% if (doc['version'][ver]) %}
+                        <td>{{ ver }} </td><td>{{ doc['version'][ver]['datemodified'] }}</td>
+                    </tr>
+                    {% endif %}
+            {% endfor %}
+        <tr align="center"><td colspan="4"><a href="/list"> << Back</a> <a href="/download/selectver/{{doc['_id']}}"> Download >> </a> </td> </tr>
+    </table></div>
