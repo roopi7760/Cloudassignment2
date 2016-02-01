@@ -27,10 +27,14 @@ db = couch['appsync']
                 }
             })'''
 
-doc = db.get('hi.txt')
-for d in doc['version']:
+
+for docs in db:
+    doc = db.get(docs)
+    if (doc['version']) :
+        print doc['version']
+'''for d in doc['version']:
     d = d.encode('ascii','ignore')
     print doc['version'][d]['rev_content']
 #doc['version'][mversion] = None # {'rev_content': None, 'rev_hashcode':None, 'datemodified': None}
 #db.save(doc)
-#print doc
+#print doc'''
