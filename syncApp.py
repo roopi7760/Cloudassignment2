@@ -10,21 +10,19 @@ import time
 import json
 
 #variables for Cloudant Database
-USERNAME = "be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix"
-PASSWORD = "473146b3b4d9073f3f02c83b97b5f8778a45a62e94177c1a1ecd1601edd24cfa"
 
 #Variables for file upload
 UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 #connect to the Cloudant Database instance
-couch = couchdb.Server("https://be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix:473146b3b4d9073f3f02c83b97b5f8778a45a62e94177c1a1ecd1601edd24cfa@be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix.cloudant.com")
+couch = couchdb.Server()
 db = couch['appsync']
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 #Uncomment the below line when deploying it on Bluemix server
-#port = int(os.getenv("VCAP_APP_PORT",'5000'))
+port = int(os.getenv("VCAP_APP_PORT",'5000'))
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 #Function to validate the type of file being uploaded. Takes one parameter which is the file and does not return anything
@@ -55,6 +53,7 @@ def downloadFile(filename):
 def getContainers():
  return render_template('Filelist.html', db=db)
 
+#Function to list the versions of the filename
 @app.route('/listver/<filename>')
 def listVersions(filename):
     doc = db.get(filename)
@@ -106,7 +105,7 @@ def insertFileIntoDB(filename):
             #check whether the content already exist in DB
             if (doc['version'][ver]):
                 if(doc['version'][ver]['rev_hashcode'] == filehash):
-                    message = 'Sorry! File already exist on the server'
+                    message = 'Sorry! File as version ' + ver + ' already exist on the server'
                     return render_template('info.html',message=message)
         #Add sub document into the document
         latest_version = int(doc['latest_version'].encode('ascii','ignore')) + 1
@@ -204,5 +203,5 @@ def deleteFile(filename):
     return render_template('info.html',message=message)
 
 if __name__ == '__main__':
-    #app.run(host='0.0.0.0',port=port)
-    app.run()
+    app.run(host='0.0.0.0',port=port)
+    #app.run()
