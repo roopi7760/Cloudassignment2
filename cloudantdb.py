@@ -1,10 +1,7 @@
 import couchdb
 import json
 
-USERNAME = "be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix"
-PASSWORD = "473146b3b4d9073f3f02c83b97b5f8778a45a62e94177c1a1ecd1601edd24cfa"
-
-couch = couchdb.Server("https://be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix:473146b3b4d9073f3f02c83b97b5f8778a45a62e94177c1a1ecd1601edd24cfa@be8dae94-2e36-4ff1-ba74-bdc4f6be1804-bluemix.cloudant.com")
+couch = couchdb.Server("")
 #couch.resource.credentials(USERNAME,PASSWORD)
 mversion = '1'
 db = couch['appsync']
